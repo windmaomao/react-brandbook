@@ -1,0 +1,26 @@
+{
+  "name": "react-brandbook",
+  "version": "1.0.0",
+  "description": "Quickly setup branding style guide website.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/windmaomao/react-brandbook"
+  },
+  "keywords": [
+    "React",
+    "Styleguide",
+    "Branding"
+  ],
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "author": "Fang Jin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/windmaomao/react-brandbook/issues"
+  },
+  "homepage": "https://github.com/windmaomao/react-brandbook"
+}
