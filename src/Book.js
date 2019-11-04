@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
 import Nav from './Nav'
 import Topic from './Topic'
@@ -33,6 +34,14 @@ const Book = ({ title, logo, topics, themes, initTopic }) => {
       </BookDiv>
     </ThemeProvider>
   )
+}
+
+Book.propTypes = {
+  title: PropTypes.node,
+}
+
+Book.defaultProps = {
+  title: 'Brandbook',
 }
 
 export default Book
