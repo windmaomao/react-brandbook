@@ -14,6 +14,7 @@ export default {
     'react-dom',
     'prop-types',
     'classnames',
+    'styled-components'
   ],
   plugins: [
     babel({
