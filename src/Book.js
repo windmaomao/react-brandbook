@@ -1,47 +1,51 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Nav from './Nav'
 import Topic from './Topic'
-import Var from './variables'
+import DefaultDiv from './Div'
 
-const BookDiv = styled.div`
-  font-family: ${Var.fontFamily.default};
-`
-
-const Book = ({ title, logo, topics, themes, initTopic }) => {
+const Book = ({ Div, title, logo, topics, themes, initTopic }) => {
   const [topic, setTopic] = useState(topics[initTopic || 0])
   const [theme, setTheme] = useState(themes[0])
 
   return (
     <ThemeProvider theme={theme.theme}>
-      <BookDiv>
-        <Nav 
+      <Div>
+        <Nav
           title={title}
           logo={logo}
-          topics={topics} 
+          topics={topics}
           topic={topic}
           onTopic={setTopic}
           themes={themes}
           theme={theme}
           onTheme={setTheme}
         />
-      <Topic
-        key={topic.title}
-        title={topic.title}
-        stories={topic.stories}
-      />
-      </BookDiv>
+        <Topic
+          key={topic.title}
+          title={topic.title}
+          stories={topic.stories}
+        />
+      </Div>
     </ThemeProvider>
   )
 }
 
 Book.propTypes = {
+  Div: PropTypes.func,
   title: PropTypes.node,
+  logo: PropTypes.node,
+  topics: PropTypes.array,
+  themes: PropTypes.array,
 }
 
 Book.defaultProps = {
+  Div: DefaultDiv,
   title: 'Brandbook',
+  logo: 'Logo',
+  topics: [],
+  themes: [],
 }
 
 export default Book
