@@ -1,6 +1,6 @@
 {
   "name": "react-brandbook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Quickly setup branding style guide website.",
   "main": "dist/index.js",
   "dependencies": {},
@@ -23,7 +23,8 @@
   "scripts": {
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    "build:post": "cp README.md dist && cp dist.package.json dist/package.json",
+    "build:post": "cp README.md dist/README.md && cp dist.package.json dist/package.json",
+    "publish": "npm publish dist",
     "test": "jest --watch"
   },
   "author": "Fang Jin",

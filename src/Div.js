@@ -40,13 +40,13 @@ const Div = styled.div`
     }
     .topic-list {
       flex: 1 0 100%;
-      margin: 10px 0 0;
+      margin: 5px 0 0;
     }
 
     ${props => props.direction !== 'row' ? `
       justify-content: space-between;
       align-items: center;
-      padding: 0 10px 10px;
+      padding: 5px 10px;
     `: `
       flex: 0 0 150px;
       flex-direction: column;
@@ -56,9 +56,6 @@ const Div = styled.div`
       min-height: 100vh;
       .book-logo {
         order: -1
-      }
-      .book-title {
-        margin-top: 5px;
       }
       .theme-list {
         margin-top: 20px;
