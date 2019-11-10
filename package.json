@@ -1,6 +1,6 @@
 {
   "name": "react-brandbook",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Quickly setup branding style guide website.",
   "main": "dist/index.js",
   "dependencies": {},
