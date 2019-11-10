@@ -1,12 +1,9 @@
 {
   "name": "react-brandbook",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Quickly setup branding style guide website.",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/windmaomao/react-brandbook"
-  },
+  "repository": "github:windmaomao/react-brandbook",
   "keywords": [
     "React",
     "Styleguide",
