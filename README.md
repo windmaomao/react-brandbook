@@ -1,6 +1,10 @@
 # React Brandbook
 
-Quickly setup branding style guide website.
+Quickly setup a brand book with title, logo and a list of topics. Each topic can have a list of different stories. 
+
+The brand book is especially suitable for style guide, resume, portfolios, or just some hobby demos. 
+
+It further supports multiple themes and layouts where you can switch between different flavour of theme and page layout. 
 
 ## Usage
 
@@ -18,7 +22,7 @@ Quickly setup branding style guide website.
   )
 ```
 
-where
+where inputs are defined as,
 
 ```javascript
   const title = 'Brandnet'
@@ -53,3 +57,27 @@ where
     />
   )
 ```
+
+where each `stories` are defined as,
+
+```javascript
+  const buttonStories = [
+    {
+      title: 'Normal',
+      text: 'Normal button states',
+      body: <Buttons />
+    },
+    {
+      title: 'Disabled',
+      text: 'Disabled button states',
+      body: <Buttons disabled />
+    },
+    {
+      title: 'Outlined',
+      text: 'Outlined button states',
+      body: <Buttons outlined />
+    },
+  ]
+```
+
+where `body` can be any HTML material. 

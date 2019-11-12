@@ -47,6 +47,7 @@ Book.propTypes = {
   logo: PropTypes.node,
   topics: PropTypes.array,
   themes: PropTypes.array,
+  layouts: PropTypes.array,
 }
 
 Book.defaultProps = {
@@ -55,6 +56,7 @@ Book.defaultProps = {
   logo: 'Logo',
   topics: [],
   themes: [],
+  layouts: []
 }
 
 export default Book

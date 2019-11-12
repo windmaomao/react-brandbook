@@ -12,19 +12,23 @@ const Nav = ({
     if (t.separator) return
     onTopic && onTopic(t)
   })
+  const themeOn = themes.length > 1
+  const layoutOn = layouts.length > 1
+  const topicOn = topics.length > 1
+
   return (
     <div className="book-nav">
       <div className="book-title">{title}</div>
       <div className="book-logo">{logo}</div>
       <div className="theme-list">
-        {themes.map((t, i) => (
+        {themeOn && themes.map((t, i) => (
           <span
             key={i}
             onClick={e => { onTheme(t) }}
             className={activeClass(t, theme)}
           >{t.title}</span>
         ))}
-        {layouts.map((t, i) => (
+        {layoutOn && layouts.map((t, i) => (
           <span
             key={i}
             onClick={e => { onLayout(t) }}
@@ -33,7 +37,7 @@ const Nav = ({
         ))}
       </div>
       <div className="topic-list">
-        {topics.map((t, i) => (
+        {topicOn && topics.map((t, i) => (
           <span
             key={i}
             onClick={onClick(t)}

@@ -13,7 +13,6 @@ export default {
     'react',
     'react-dom',
     'prop-types',
-    'classnames',
     'styled-components'
   ],
   plugins: [
