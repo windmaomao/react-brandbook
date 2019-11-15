@@ -24,7 +24,7 @@ const Book = ({ Div, title, logo, topics, themes, layouts }) => {
 
   return (
     <ThemeProvider theme={theme.theme}>
-      <Div direction={layout.direction} cover={topic.cover}>
+      <Div direction={layout.direction} cover={topic.separator}>
         <Nav
           title={title}
           logo={logo}

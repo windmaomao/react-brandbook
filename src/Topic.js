@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 
-const Topic = ({ title, stories, onNext }) => {
+const Topic = ({ stories, onNext }) => {
   if (!stories || !stories.length) return null
 
   const [selected, setSelected] = useState(stories[0])
@@ -16,7 +16,7 @@ const Topic = ({ title, stories, onNext }) => {
 
   const storyBody = selected.body ?
     React.cloneElement(selected.body, {
-      ...selected, onNextClick
+      story: { ...selected, onNextClick }
     }) : null
 
   return (

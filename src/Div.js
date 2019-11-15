@@ -45,6 +45,9 @@ const Div = styled.div`
       justify-content: space-between;
       align-items: center;
       padding: 5px 10px;
+      .book-title {
+        margin-left: 5px;
+      }
       .topic-list {
         > span {
           &.separator {

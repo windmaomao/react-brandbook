@@ -50,7 +50,7 @@ const Nav = ({
             })}
           >
             {separatorOn(t) && (
-              <span className="symbol" title={t.title}>|</span>
+              <span className="symbol" title={t.title}>&#8942;</span>
             )}
             <span className="text" title={t.title}>{t.title}</span>
           </span>

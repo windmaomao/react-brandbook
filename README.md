@@ -83,7 +83,7 @@ where each `stories` are defined as,
 where `body` can be any node or component,
 
 ```javascript
-  const Cover = ({ title, text, next, onNextClick }) => (
+  const Cover = ({ story: { title, text, next, onNextClick }}) => (
     <div className="splash-content">
       <h1>{title}</h1>
       <p>{text}</p>
