@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Var, { background, foreground } from './variables'
 
 const Div = styled.div`
+  -webkit-font-smoothing: antialiased;
   font-family: ${Var.fontFamily.default};
   display: flex;
   flex-direction: ${props => props.direction};
@@ -23,15 +24,12 @@ const Div = styled.div`
 
     .theme-list, .topic-list {
       display: flex;
-      span {
+      > span {
         cursor: pointer;
         margin-right: 8px;
         &.active, &.separator {
           font-family: ${Var.fontFamily.bold};
           font-weight: bold;
-        }
-        &.separator {
-          display: none;
         }
       } 
     }
@@ -40,13 +38,25 @@ const Div = styled.div`
     }
     .topic-list {
       flex: 1 0 100%;
-      margin: 5px 0 0;
+      margin: 5px 0;
     }
 
     ${props => props.direction !== 'row' ? `
       justify-content: space-between;
       align-items: center;
       padding: 5px 10px;
+      .topic-list {
+        > span {
+          &.separator {
+            .text {
+              display: none;
+            }
+            .symbol {
+              opacity: 0.3;
+            }
+          }
+        }
+      }
     `: `
       flex: 0 0 150px;
       flex-direction: column;
@@ -72,7 +82,9 @@ const Div = styled.div`
             font-size: 12px;
             margin-top: 15px;
             opacity: 0.6;
-            cursor: none;
+            .symbol {
+              display: none;
+            }
           }
         }
       }
@@ -83,18 +95,20 @@ const Div = styled.div`
     flex: 1 1 auto;
     background-color: ${background};
     color: ${foreground};
-    padding: 20px;
+    padding: ${props => props.cover ? '0' : '20px'};
+    position: relative;
+    .story-next {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
     .story-head {
-      display: flex;
+      display: ${props => props.cover ? 'none' : 'flex'};
       align-items: baseline;
       justify-content: space-between;
       flex-wrap: wrap;
-      .story-title {
-        font-size: 20px;
-        font-weight: bold;
-        order: 0;
-        display: none;
-      }
+      margin-bottom: 20px;
       .story-text {
         flex: 1 0 auto;
         font-family: ${Var.fontFamily.light};
@@ -118,7 +132,6 @@ const Div = styled.div`
       }
     }
     .story-body {
-      padding-top: 20px;
       padding-bottom: 80px;
       color: ${foreground};
       h4 {
@@ -135,6 +148,23 @@ const Div = styled.div`
       margin: 0 auto;
     }    
   `}
+
+  .book-separator {
+    flex: 1 1 auto;
+    background-color: ${background};
+    color: ${foreground};
+    padding: 20px;
+    position: relative;
+    .story-title {
+      font-family: ${Var.fontFamily.headline};
+      cursor: pointer;
+      position: absolute;
+      top: 40vh;
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
 `
 
 export default Div

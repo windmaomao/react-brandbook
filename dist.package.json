@@ -1,7 +1,7 @@
 {
   "name": "react-brandbook",
-  "version": "1.0.4",
-  "description": "Quickly setup branding style guide website.",
+  "version": "1.0.5",
+  "description": "Quickly setup branding website with styles and navigations.",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -9,8 +9,8 @@
   },
   "keywords": [
     "React",
-    "Styleguide",
-    "Branding"
+    "Branding",
+    "Styleguide"
   ],
   "peerDependencies": {
     "prop-types": "^15.7.2",

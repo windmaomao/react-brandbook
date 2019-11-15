@@ -9,26 +9,29 @@ const Nav = ({
 }) => {
   const activeClass = (t, current) => t === current ? 'active' : ''
   const onClick = t => useCallback(e => {
-    if (t.separator) return
     onTopic && onTopic(t)
   })
-  const themeOn = themes.length > 1
-  const layoutOn = layouts.length > 1
-  const topicOn = topics.length > 1
+  const separatorOn = useCallback(t => {
+    if (!t.separator) return false
+    // const i = topics.indexOf(t)
+    // if (i === 0) return false
+    // if (i === topics.length - 1) return false
+    return true
+  })
 
   return (
     <div className="book-nav">
       <div className="book-title">{title}</div>
       <div className="book-logo">{logo}</div>
       <div className="theme-list">
-        {themeOn && themes.map((t, i) => (
+        {themes.map((t, i) => (
           <span
             key={i}
             onClick={e => { onTheme(t) }}
             className={activeClass(t, theme)}
           >{t.title}</span>
         ))}
-        {layoutOn && layouts.map((t, i) => (
+        {layouts.map((t, i) => (
           <span
             key={i}
             onClick={e => { onLayout(t) }}
@@ -37,7 +40,7 @@ const Nav = ({
         ))}
       </div>
       <div className="topic-list">
-        {topicOn && topics.map((t, i) => (
+        {topics.map((t, i) => (
           <span
             key={i}
             onClick={onClick(t)}
@@ -45,7 +48,12 @@ const Nav = ({
               'active': t === topic,
               'separator': t.separator
             })}
-          >{t.title}</span>
+          >
+            {separatorOn(t) && (
+              <span className="symbol" title={t.title}>|</span>
+            )}
+            <span className="text" title={t.title}>{t.title}</span>
+          </span>
         ))}
       </div>
     </div>

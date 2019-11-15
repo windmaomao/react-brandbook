@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import Nav from './Nav'
@@ -14,10 +14,17 @@ const Book = ({ Div, title, logo, topics, themes, layouts }) => {
   const [topic, setTopic] = useState(topicStorage.load(topics))
   const [theme, setTheme] = useState(themeStorage.load(themes))
   const [layout, setLayout] = useState(layoutStorage.load(layouts))
+  const onNext = useCallback(() => {
+    const i = topics.indexOf(topic)
+    if (i < topics.length - 1) {
+      topicStorage.save(topics, setTopic)(topics[i + 1])
+    }
+  })
+  const canNext = topics.indexOf(topic) < (topics.length - 1)
 
   return (
     <ThemeProvider theme={theme.theme}>
-      <Div direction={layout.direction}>
+      <Div direction={layout.direction} cover={topic.cover}>
         <Nav
           title={title}
           logo={logo}
@@ -35,6 +42,9 @@ const Book = ({ Div, title, logo, topics, themes, layouts }) => {
           key={topic.title}
           title={topic.title}
           stories={topic.stories}
+          separator={topic.separator}
+          onNext={onNext}
+          canNext={canNext}
         />
       </Div>
     </ThemeProvider>
@@ -56,7 +66,7 @@ Book.defaultProps = {
   logo: 'Logo',
   topics: [],
   themes: [],
-  layouts: []
+  layouts: [],
 }
 
 export default Book

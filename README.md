@@ -1,10 +1,10 @@
 # React Brandbook
 
-Quickly setup a brand book with title, logo and a list of topics. Each topic can have a list of different stories. 
+Quickly setup a brand book with title, logo and a list of topics (with sub-topics). 
 
-The brand book is especially suitable for style guide, resume, portfolios, or just some hobby demos. 
+It supports multiple themes and layouts where you can switch between different flavour of theme and page layout. 
 
-It further supports multiple themes and layouts where you can switch between different flavour of theme and page layout. 
+It is especially suitable for portfolios, style guides, resumes, or just any slides like pages.
 
 ## Usage
 
@@ -80,4 +80,18 @@ where each `stories` are defined as,
   ]
 ```
 
-where `body` can be any HTML material. 
+where `body` can be any node or component,
+
+```javascript
+  const Cover = ({ title, text, next, onNextClick }) => (
+    <div className="splash-content">
+      <h1>{title}</h1>
+      <p>{text}</p>
+      <p>
+        <Button onClick={onNextClick}>
+          {next || 'Next'} &nbsp;
+        </Button>
+      </p>
+    </div>
+  )
+```
