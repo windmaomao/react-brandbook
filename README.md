@@ -10,55 +10,41 @@ It is especially suitable for portfolios, style guides, resumes, or just any sli
 
 ```javascript
   ReactDOM.render(
-    <Book
-      title={title}
-      logo={logo}
-      topics={topics}
-      themes={themes}
-      layouts={layouts}
-      // Div={Div}
-    />,
+    <Book />,
     document.getElementById('root')
   )
 ```
 
-where inputs are defined as,
+where props supported includes,
+
+### Title and Logo
+
+You can replace them with any element, ex. 
 
 ```javascript
-  const title = 'Brandnet'
-  const topics = [
-    { title: 'Button', stories: buttonStories },
-    { title: 'Icon', stories: iconStories },
-    { title: 'Nav', stories: navStories },
-    { title: 'Title', stories: titleStories },
-    { title: 'Utils', separator: true },
-    { title: 'Grid', stories: gridStories },
-    { title: 'Tuts', separator: true },
-    { title: 'Spec', stories: specStories },
-    { title: 'Tutorial', stories: tutorialStories },
-  ]
-  const themes = [
-    { title: 'Light', theme: { mode: 'light' } },
-    { title: 'Dark', theme: { mode: 'dark' } }
-  ]
-  const layouts = [
-    { title: 'Top', direction: 'column' },
-    { title: 'Left', direction: 'row' }
-  ]
+  const title = 'MyBook'
   const logo = (
     <Icon
       size={'auto'}
-      width={'106px'}
-      height={'36px'}
-      viewBox={'0 0 283.465 95.318'}
       children={<Logo />}
-      button
       style={{ position: 'relative', top: '-3px' }}
     />
   )
+
+  <Book title={title} logo={logo} />
 ```
 
-where each `stories` are defined as,
+### Topics
+
+Each topic is a page that is provided by via and object with title and stories. 
+
+```javascript
+  const topics = [
+    { title: 'Button', stories: buttonStories }
+  ]
+```
+
+where each story is defined as an objecgt with `title`, `text` and `body`. 
 
 ```javascript
   const buttonStories = [
@@ -67,31 +53,7 @@ where each `stories` are defined as,
       text: 'Normal button states',
       body: <Buttons />
     },
-    {
-      title: 'Disabled',
-      text: 'Disabled button states',
-      body: <Buttons disabled />
-    },
-    {
-      title: 'Outlined',
-      text: 'Outlined button states',
-      body: <Buttons outlined />
-    },
+    ...
   ]
 ```
 
-where `body` can be any node or component,
-
-```javascript
-  const Cover = ({ story: { title, text, next, onNextClick }}) => (
-    <div className="splash-content">
-      <h1>{title}</h1>
-      <p>{text}</p>
-      <p>
-        <Button onClick={onNextClick}>
-          {next || 'Next'} &nbsp;
-        </Button>
-      </p>
-    </div>
-  )
-```

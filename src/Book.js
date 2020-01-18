@@ -60,13 +60,22 @@ Book.propTypes = {
   layouts: PropTypes.array,
 }
 
+const defaultThemes = [
+  { title: 'Light', theme: { mode: 'light' } },
+  { title: 'Dark', theme: { mode: 'dark' } }
+]
+const defaultLayouts = [
+  { title: 'Top', direction: 'column' },
+  { title: 'Left', direction: 'row' }
+]
+
 Book.defaultProps = {
   Div: DefaultDiv,
   title: 'Brandbook',
   logo: 'Logo',
   topics: [],
-  themes: [],
-  layouts: [],
+  themes: defaultThemes,
+  layouts: defaultLayouts
 }
 
 export default Book

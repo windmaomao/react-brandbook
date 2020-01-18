@@ -1,5 +1,6 @@
 const storage = name => ({
   load: items => {
+    if (!items || items.length < 1) return {}
     const last = parseInt(localStorage.getItem(name))
     if (last < items.length) return items[last]
     return items[0]
