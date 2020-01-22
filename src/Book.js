@@ -1,19 +1,27 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import Nav from './Nav'
 import Topic from './Topic'
 import DefaultDiv from './Div'
 import storage from './storage'
+import locate from './locate'
 
 const topicStorage = storage('topic')
+const storyStorage = storage('story')
 const themeStorage = storage('theme')
 const layoutStorage = storage('layout')
 
 const Book = ({ Div, title, logo, topics, themes, layouts }) => {
+  const [reload, setReload] = useState(0)
   const [topic, setTopic] = useState(topicStorage.load(topics))
   const [theme, setTheme] = useState(themeStorage.load(themes))
   const [layout, setLayout] = useState(layoutStorage.load(layouts))
+
+  useEffect(() => {
+    setTopic(topicStorage.load(topics))
+  }, [reload])
+
   const onNext = useCallback(() => {
     const i = topics.indexOf(topic)
     if (i < topics.length - 1) {
@@ -21,6 +29,12 @@ const Book = ({ Div, title, logo, topics, themes, layouts }) => {
     }
   })
   const canNext = topics.indexOf(topic) < (topics.length - 1)
+  const goto = useCallback((search) => {
+    const t = locate(topics).findTopic(search)
+    topicStorage.save(topics)(t)
+    storyStorage.save(topic.stories)(null)
+    setReload(reload + 1)
+  })
 
   return (
     <ThemeProvider theme={theme.theme}>
@@ -30,7 +44,10 @@ const Book = ({ Div, title, logo, topics, themes, layouts }) => {
           logo={logo}
           topics={topics}
           topic={topic}
-          onTopic={topicStorage.save(topics, setTopic)}
+          onTopic={topic => {
+            topicStorage.save(topics, setTopic)(topic)
+            storyStorage.save(topic.stories)(null)
+          }}
           themes={themes}
           theme={theme}
           onTheme={themeStorage.save(themes, setTheme)}
@@ -43,6 +60,7 @@ const Book = ({ Div, title, logo, topics, themes, layouts }) => {
           title={topic.title}
           stories={topic.stories}
           separator={topic.separator}
+          goto={goto}
           onNext={onNext}
           canNext={canNext}
         />

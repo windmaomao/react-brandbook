@@ -3,10 +3,10 @@
 ## Jan 2020
 
 - ~~support default layouts and themes~~
-- remember second level position in memory
+- ~~remember second level position in memory~~
+- ~~allow navigation to another topic~~
 - allow to swap some variables ex. fontFamily
 - or maybe just localize all variables
-- allow navigation to another topic
 - allow navigation panel to be hidden
 
 ## Nov 2019

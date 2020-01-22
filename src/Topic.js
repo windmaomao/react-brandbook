@@ -1,10 +1,15 @@
 import React, { useState, useCallback } from 'react'
+import storage from './storage'
 
-const Topic = ({ stories, onNext }) => {
+const storyStorage = storage('story')
+
+const Topic = ({ stories, onNext, goto }) => {
   if (!stories || !stories.length) return null
 
-  const [selected, setSelected] = useState(stories[0])
-  const onClick = story => useCallback(e => { setSelected(story) })
+  const [selected, setSelected] = useState(storyStorage.load(stories))
+  const onClick = story => useCallback(e => {
+    storyStorage.save(stories, setSelected)(story)
+  })
   const onNextClick = useCallback(e => {
     const index = stories.indexOf(selected)
     if (index < stories.length - 1) {
@@ -16,7 +21,7 @@ const Topic = ({ stories, onNext }) => {
 
   const storyBody = selected.body ?
     React.cloneElement(selected.body, {
-      story: { ...selected, onNextClick }
+      story: { ...selected, onNextClick, goto }
     }) : null
 
   return (
