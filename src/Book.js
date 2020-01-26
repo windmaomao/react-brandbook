@@ -38,7 +38,11 @@ const Book = ({ Div, title, logo, topics, themes, layouts }) => {
 
   return (
     <ThemeProvider theme={theme.theme}>
-      <Div direction={layout.direction} cover={topic.separator}>
+      <Div
+        direction={layout.direction}
+        reverse={layout.reverse}
+        cover={topic.separator}
+      >
         <Nav
           title={title}
           logo={logo}
@@ -78,13 +82,17 @@ Book.propTypes = {
   layouts: PropTypes.array,
 }
 
+const fontFamily = 'inherit'
+
 const defaultThemes = [
-  { title: 'Light', theme: { mode: 'light' } },
-  { title: 'Dark', theme: { mode: 'dark' } }
+  { title: 'Light', theme: { mode: 'light', fontFamily } },
+  { title: 'Dark', theme: { mode: 'dark', fontFamily } }
 ]
 const defaultLayouts = [
   { title: 'Top', direction: 'column' },
-  { title: 'Left', direction: 'row' }
+  { title: 'Bottom', direction: 'column', reverse: true },
+  { title: 'Left', direction: 'row' },
+  { title: 'Right', direction: 'row', reverse: true }
 ]
 
 Book.defaultProps = {

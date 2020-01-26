@@ -1,20 +1,24 @@
 import styled from 'styled-components'
-import Var, { background, foreground } from './variables'
+import { background, foreground, fontFamily } from './variables'
+
+const flexDirection = props => {
+  var dir = props.direction
+  if (props.reverse) dir += '-reverse'
+  return dir
+}
 
 const Div = styled.div`
   -webkit-font-smoothing: antialiased;
-  font-family: ${Var.fontFamily.default};
+  font-family: ${fontFamily};
   display: flex;
-  flex-direction: ${props => props.direction};
+  flex-direction: ${flexDirection};
   .book-nav {
-    font-family: ${Var.fontFamily.light};
     background-color: ${foreground};
     color: ${background};
     display: flex;
     flex-wrap: wrap;
 
     .book-title {
-      font-family: ${Var.fontFamily.headline};
       font-size: 20px;
       font-weight: bold;
       letter-spacing: 0.5px;
@@ -28,15 +32,16 @@ const Div = styled.div`
         cursor: pointer;
         margin-right: 8px;
         &.active, &.separator {
-          font-family: ${Var.fontFamily.bold};
           font-weight: bold;
         }
       } 
     }
     .theme-list {
       font-size: 13px;
+      font-weight: 200;
     }
     .topic-list {
+      font-weight: 200;
       flex: 1 0 100%;
       margin: 5px 0;
     }
@@ -114,7 +119,7 @@ const Div = styled.div`
       margin-bottom: 20px;
       .story-text {
         flex: 1 0 auto;
-        font-family: ${Var.fontFamily.light};
+        weight: 200;
         font-size: 14px;
         margin: 10px 10px 0;
       }
@@ -128,7 +133,6 @@ const Div = styled.div`
           line-height: 30px;
           &.active {
             font-weight: bold;
-            font-family: ${Var.fontFamily.bold};
             border-bottom: 1px solid ${foreground};
           }
         } 
@@ -137,11 +141,6 @@ const Div = styled.div`
     .story-body {
       padding-bottom: 80px;
       color: ${foreground};
-      h4 {
-        font-family: ${Var.fontFamily.headline};
-        font-size: 16px;
-        letter-spacing: 1px;
-      }
     }
   }
 
@@ -159,7 +158,6 @@ const Div = styled.div`
     padding: 20px;
     position: relative;
     .story-title {
-      font-family: ${Var.fontFamily.headline};
       cursor: pointer;
       position: absolute;
       top: 40vh;

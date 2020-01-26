@@ -1,15 +1,27 @@
 # Todo
 
-## Jan 2020
+## 2020
 
-- ~~support default layouts and themes~~
-- ~~remember second level position in memory~~
-- ~~allow navigation to another topic~~
-- allow to swap some variables ex. fontFamily
-- or maybe just localize all variables
+### Fab 2020
+
+- display all in menu
+- support organization of menu
 - allow navigation panel to be hidden
 
-## Nov 2019
+### Jan 2020
+
+- ~~remember second level position~~
+- ~~allow navigation to another topic~~
+- ~~support bottom and right layout~~
+- ~~support change font-family~~
+
+## 2019
+
+### Dec
+
+- ~~support default layouts and themes~~
+
+### Nov
 
 - ~~support save of third level~~
 - ~~suppport nav to next sibling as book~~

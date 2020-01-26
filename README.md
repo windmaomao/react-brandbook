@@ -74,6 +74,17 @@ In order to navigate from one topic to another topic, you can use `story.goto(se
   }
 ```
 
+### Themes
+
+```javascript
+  const fontFamily = 'Times New Rome'
+  const themes = [
+    { title: 'Light', theme: { mode: 'light', fontFamily } },
+    { title: 'Dark', theme: { mode: 'dark', fontFamily } }
+  ]
+
+  return <Book themes={themes} />
+```
 
 
 

@@ -34,6 +34,8 @@ const Nav = ({
             className={activeClass(t, theme)}
           >{t.title}</span>
         ))}
+      </div>
+      <div className="theme-list">
         {layoutsOn && layouts.map((t, i) => (
           <span
             key={i}
