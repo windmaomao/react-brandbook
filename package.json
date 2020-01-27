@@ -1,9 +1,12 @@
 {
   "name": "react-brandbook",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Quickly setup branding website with styles and navigations.",
-  "main": "dist/index.js",
-  "dependencies": {},
+  "main": "index.js",
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "styled-components": "^4.3.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
@@ -21,13 +24,31 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "styled-components": "^4.4.1"
   },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
   "scripts": {
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    "build:post": "cp README.md dist/README.md && cp dist.package.json dist/package.json",
+    "build:post": "cp README.md dist/README.md && cp package.json dist/package.json",
     "publish": "npm publish dist",
     "test": "jest --watch"
   },
   "author": "Fang Jin",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/windmaomao/react-brandbook.git"
+  },
+  "keywords": [
+    "React",
+    "Branding",
+    "Styleguide",
+    "Storybook"
+  ],
+  "bugs": {
+    "url": "https://github.com/windmaomao/react-brandbook/issues"
+  },
+  "homepage": "https://github.com/windmaomao/react-brandbook"
 }
