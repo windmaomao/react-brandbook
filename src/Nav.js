@@ -16,16 +16,15 @@ const Nav = ({
   const topicsOn = topics && topics.length > 1
   const separatorOn = useCallback(t => {
     if (!t.separator) return false
-    // const i = topics.indexOf(t)
-    // if (i === 0) return false
-    // if (i === topics.length - 1) return false
     return true
   })
 
   return (
     <div className="book-nav">
-      <div className="book-title">{title}</div>
-      <div className="book-logo">{logo}</div>
+      <div className="nav-logo">
+        <span>{logo}</span>
+        <span>{title}</span>
+      </div>
       <div className="theme-list">
         {themesOn && themes.map((t, i) => (
           <span

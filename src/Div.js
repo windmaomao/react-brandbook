@@ -7,6 +7,11 @@ const flexDirection = props => {
   return dir
 }
 
+const logoDirection = props => {
+  var dir = props.direction
+  return dir === 'row' ? 'column' : 'row'
+}
+
 const Div = styled.div`
   -webkit-font-smoothing: antialiased;
   font-family: ${fontFamily};
@@ -18,12 +23,14 @@ const Div = styled.div`
     display: flex;
     flex-wrap: wrap;
 
-    .book-title {
-      font-size: 20px;
+    .nav-logo {
+      margin: 15px 0;
+      display: flex;
+      flex-direction: ${logoDirection};
+      font-size: 18px;
       font-weight: bold;
       letter-spacing: 0.5px;
       line-height: 25px;
-      order: 0;
     }
 
     .theme-list, .topic-list {
@@ -31,7 +38,7 @@ const Div = styled.div`
       > span {
         cursor: pointer;
         margin-right: 8px;
-        &.active, &.separator {
+        &.active {
           font-weight: bold;
         }
       } 
@@ -47,12 +54,10 @@ const Div = styled.div`
     }
 
     ${props => props.direction !== 'row' ? `
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 5px 10px;
-      .book-title {
-        margin-left: 5px;
-      }
       .topic-list {
         > span {
           &.separator {
@@ -72,11 +77,8 @@ const Div = styled.div`
       align-items: baseline;
       padding: 40px;
       min-height: 100vh;
-      .book-logo {
-        order: -1
-      }
       .theme-list {
-        margin-top: 20px;
+        margin-top: 10px;
       }
       .topic-list {
         flex: 0 0 auto;

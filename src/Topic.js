@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react'
+import PropTypes from 'prop-types'
 import storage from './storage'
 
 const storyStorage = storage('story')
@@ -42,6 +43,18 @@ const Topic = ({ stories, onNext, goto }) => {
       <div className="story-body">{storyBody}</div>
     </div>
   )
+}
+
+Topic.propTypes = {
+  stories: PropTypes.array,
+  onNext: PropTypes.func,
+  goto: PropTypes.func,
+}
+
+Topic.defaultProps = {
+  stories: [],
+  onNext: undefined,
+  goto: () => { }
 }
 
 export default Topic

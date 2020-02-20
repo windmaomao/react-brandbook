@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import Nav from './Nav'
 import Topic from './Topic'
+import Separator from './Separator'
 import DefaultDiv from './Div'
 import storage from './storage'
 import locate from './locate'
@@ -59,15 +60,23 @@ const Book = ({ Div, title, logo, topics, themes, layouts }) => {
           layout={layout}
           onLayout={layoutStorage.save(layouts, setLayout)}
         />
-        <Topic
-          key={topic.title}
-          title={topic.title}
-          stories={topic.stories}
-          separator={topic.separator}
-          goto={goto}
-          onNext={onNext}
-          canNext={canNext}
-        />
+        {topic.separator ? (
+          <Separator
+            key={topic.title}
+            title={topic.title}
+            onNext={onNext}
+          />
+        ) : (
+            <Topic
+              key={topic.title}
+              title={topic.title}
+              stories={topic.stories}
+              separator={topic.separator}
+              goto={goto}
+              onNext={onNext}
+              canNext={canNext}
+            />
+          )}
       </Div>
     </ThemeProvider>
   )

@@ -2,18 +2,18 @@
 
 ## 2020
 
-### Fab 2020
+### Feb
 
-- display all in menu
-- support organization of menu
-- allow navigation panel to be hidden
+- ~~allow the category to be clicked~~
+- ~~allow navigate to specific topic~~
 
-### Jan 2020
+### Jan
 
 - ~~remember second level position~~
 - ~~allow navigation to another topic~~
 - ~~support bottom and right layout~~
 - ~~support change font-family~~
+- ~~combine logo and title~~
 
 ## 2019
 
