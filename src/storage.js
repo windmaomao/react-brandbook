@@ -1,3 +1,5 @@
+import './polyfills'
+
 const getItem = name => {
   const urlParams = new URLSearchParams(window.location.search)
   const v = urlParams.get(name) || ''

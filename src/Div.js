@@ -108,9 +108,7 @@ const Div = styled.div`
     padding: ${props => props.cover ? '0' : '20px'};
     position: relative;
     .story-next {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+      float: right;
       cursor: pointer;
     }
     .story-head {
@@ -120,10 +118,17 @@ const Div = styled.div`
       flex-wrap: wrap;
       margin-bottom: 20px;
       .story-text {
-        flex: 1 0 auto;
+        flex: 1 0;
         weight: 200;
         font-size: 14px;
-        margin: 10px 10px 0;
+        margin: 10px 0;
+        line-height: 1.4;
+        b {
+          font-weight: bold;
+        }
+      }
+      .story-breadcrumb {
+        margin-bottom: 0.5em;
       }
       .story-list {
         flex: 1 0 100%;

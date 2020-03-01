@@ -2,6 +2,12 @@
 
 ## 2020
 
+### Mar
+
+- ~~add breadcrumb and text styling~~
+- ~~add right arrow to breadcrumb~~
+- ~~IE issue for urlQuery~~
+
 ### Feb
 
 - ~~allow the category to be clicked~~

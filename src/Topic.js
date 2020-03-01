@@ -4,7 +4,7 @@ import storage from './storage'
 
 const storyStorage = storage('story')
 
-const Topic = ({ stories, onNext, goto }) => {
+const Topic = ({ title, stories, onNext, goto }) => {
   if (!stories || !stories.length) return null
 
   const [selected, setSelected] = useState(storyStorage.load(stories))
@@ -27,7 +27,6 @@ const Topic = ({ stories, onNext, goto }) => {
 
   return (
     <div className="book-topic">
-      <div className="story-next" onClick={onNextClick}>></div>
       <div className="story-head">
         <div className="story-list">
           {stories.map((story, i) => (
@@ -38,7 +37,13 @@ const Topic = ({ stories, onNext, goto }) => {
             >{story.title}</span>
           ))}
         </div>
-        <div className="story-text">{selected.text || ''}</div>
+        <div className="story-text">
+          <div className="story-next" onClick={onNextClick}>></div>
+          <div className="story-breadcrumb">
+            {title} > <b>{selected.title}</b>
+          </div>
+          {selected.text || ''}
+        </div>
       </div>
       <div className="story-body">{storyBody}</div>
     </div>
